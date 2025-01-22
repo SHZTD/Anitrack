@@ -5,7 +5,7 @@
     android:id="@+id/inicio"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000"
+    android:background="@drawable/inicio"
     tools:context=".MainActivity">
 
     <ImageView
@@ -29,12 +29,15 @@
         app:layout_constraintTop_toBottomOf="@+id/textView"
         />
 
+    <!-- Textoooo -->
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="A B C D E F G"
         android:textColor="#FFFFFF"
+        android:text="test"
+        android:textSize="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
