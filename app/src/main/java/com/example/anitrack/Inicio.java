@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class Inicio extends Fragment {
@@ -31,7 +32,7 @@ public class Inicio extends Fragment {
 
         navController = Navigation.findNavController(view);
         btn1 = view.findViewById(R.id.btn1);
-        texto1 = view.findViewById(R.id.textView);
+        texto1 = view.findViewById(R.id.descriptionText);
 
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
