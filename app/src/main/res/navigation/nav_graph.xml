@@ -11,12 +11,29 @@
         android:label="fragment_inicio"
         tools:layout="@layout/fragment_inicio" >
         <action
-            android:id="@+id/action_main_to_tab1"
-            app:destination="@id/tab1" />
+            android:id="@+id/action_main_to_master"
+            app:destination="@id/master" />
     </fragment>
+
     <fragment
         android:id="@+id/tab1"
         android:name="com.example.anitrack.Tab1"
         android:label="fragment_tab1"
         tools:layout="@layout/fragment_tab1" />
+    <fragment
+        android:id="@+id/tab2"
+        android:name="com.example.anitrack.Tab2"
+        android:label="fragment_tab2"
+        tools:layout="@layout/fragment_tab2" />
+    <fragment
+        android:id="@+id/tab3"
+        android:name="com.example.anitrack.Tab3"
+        android:label="fragment_tab3"
+        tools:layout="@layout/fragment_tab3" />
+    <fragment
+        android:id="@+id/master"
+        android:name="com.example.anitrack.master"
+        android:label="fragment_master"
+        tools:layout="@layout/fragment_master" />
+
 </navigation>

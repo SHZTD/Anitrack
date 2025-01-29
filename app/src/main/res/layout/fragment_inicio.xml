@@ -6,9 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    android:screenOrientation="portrait"
-    tools:context=".MainActivity"
-    tools:ignore="DiscouragedApi">
+    tools:context=".MainActivity">
 
     <!-- Fondo -->
     <ImageView
@@ -54,7 +52,7 @@
         android:layout_height="wrap_content"
         android:text="TEST"
         android:textColor="#FFFFFF"
-        android:textSize="24dp"
+        android:textSize="24sp"
         android:gravity="center"
         app:layout_constraintTop_toBottomOf="@id/titleText"
         app:layout_constraintStart_toStartOf="parent"

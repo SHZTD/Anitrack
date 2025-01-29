@@ -9,24 +9,26 @@
 
     <!-- Descripción -->
     <TextView
-        android:id="@+id/textoTab1"
+        android:id="@+id/textoTab2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Explorador"
+        android:text="Me gusta"
         android:textColor="#FFFFFF"
         android:textSize="24sp" />
 
     <!-- Fondo -->
-    <!--ImageView
-        android:id="@+id/tab1Imagen"
+
+    <ImageView
+        android:id="@+id/tab2Imagen"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/tab1"
+        android:background="@drawable/tab2"
         android:alpha="0.12"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" /-->
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
 
 </FrameLayout>
