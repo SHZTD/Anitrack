@@ -11,7 +11,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.example.anitrack.databinding.FragmentMasterBinding;
 
-
+// master para el viewpager | deslizars entre pantallas
 public class master extends Fragment {
     private FragmentMasterBinding binding;
 
