@@ -37,7 +37,7 @@ public class Inicio extends Fragment {
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navController.navigate(R.id.tab1);
+                navController.navigate(R.id.master);
             }
         });
 
