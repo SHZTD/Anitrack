@@ -17,7 +17,6 @@ import com.example.anitrack.databinding.FragmentTab3Binding;
 
 public class Tab3 extends Fragment {
     private FragmentTab3Binding binding;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

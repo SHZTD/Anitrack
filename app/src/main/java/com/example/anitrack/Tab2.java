@@ -16,9 +16,7 @@ import android.view.ViewGroup;
 import com.example.anitrack.databinding.FragmentTab2Binding;
 
 public class Tab2 extends Fragment {
-
     private FragmentTab2Binding binding;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
