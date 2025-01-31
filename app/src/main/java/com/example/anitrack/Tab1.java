@@ -24,4 +24,7 @@ public class Tab1 extends Fragment {
         // return inflater.inflate(R.layout.fragment_tab1, container, false);
         return (binding = FragmentTab1Binding.inflate(inflater, container, false)).getRoot();
     }
+
+
+
 }

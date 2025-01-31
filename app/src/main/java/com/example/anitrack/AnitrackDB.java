@@ -16,7 +16,7 @@ import java.util.List;
 
 @Database(entities = { Musica.class }, version = 1, exportSchema = false)
 
-public abstract class AnitrackDB extends RoomDatabase{
+public abstract class AnitrackDB extends RoomDatabase {
     private static volatile AnitrackDB INSTANCIA;
     public abstract AniDao getAnimeDao();
 

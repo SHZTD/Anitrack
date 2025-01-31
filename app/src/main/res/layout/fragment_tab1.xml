@@ -29,6 +29,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
 
+    <!-- Linear layout con todos los elementos -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -41,7 +42,6 @@
         android:layout_marginTop="32dp"
         tools:context=".MostrarElementoFragment">
 
-        <!-- LinearLayout para imagen y nombre, con orientación horizontal -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="140dp"
@@ -50,8 +50,8 @@
 
             <ImageView
                 android:id="@+id/icono"
-                android:layout_width="250px"
-                android:layout_height="250px"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_marginEnd="16dp"
                 android:background="@drawable/ic_launcher_background" />
 
@@ -62,7 +62,32 @@
                 android:textColor="@color/white"
                 android:text="TEMPLATE"
                 android:textSize="24sp" />
-
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="16dp">
+
+            <Button
+                android:id="@+id/btn_me_gusta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Me gusta"
+                android:padding="8dp"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/btn_guardar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Guardar"
+                android:padding="8dp"
+                android:textSize="18sp"
+                android:layout_marginStart="16dp" />
+        </LinearLayout>
+
     </LinearLayout>
 </FrameLayout>
