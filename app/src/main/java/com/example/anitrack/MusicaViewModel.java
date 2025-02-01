@@ -14,32 +14,32 @@ public class MusicaViewModel extends AndroidViewModel {
     MutableLiveData<List<Musica>> listMusicaMutableLiveData = new MutableLiveData<>();
     MutableLiveData<Musica> musicaSeleccionada = new MutableLiveData<>();
 
-    void seleccionar(Musica musica){
-        musicaSeleccionada.setValue(musica);
-    }
-
-    MutableLiveData<Musica> seleccionado(){
-        return musicaSeleccionada;
-    }
-
     public MusicaViewModel(@NonNull Application application) {
         super(application);
         musicaRepositorio = new MusicaRepositorio(application);
     }
 
-    LiveData<List<Musica>> obtener(){
-        return musicaSeleccionada.obtener();
+    public void seleccionar(Musica musica) {
+        musicaSeleccionada.setValue(musica);
     }
 
-    void insertar(Musica musica){
-        musicaSeleccionada.insertar(musica);
+    public LiveData<Musica> seleccionado() {
+        return musicaSeleccionada;
     }
 
-    void eliminar(Musica musica){
-        musicaSeleccionada.eliminar(musica);
+    public LiveData<List<Musica>> obtener() {
+        return musicaRepositorio.obtener();
     }
 
-    void actualizar(Musica musica, float valoracion){
-        musicaSeleccionada.actualizar(musica, valoracion);
+    public void insertar(Musica musica) {
+        musicaRepositorio.insertar(musica);
+    }
+
+    public void eliminar(Musica musica) {
+        musicaRepositorio.eliminar(musica);
+    }
+
+    public void actualizar(Musica musica, float valoracion) {
+        musicaRepositorio.actualizar(musica, valoracion);
     }
 }
