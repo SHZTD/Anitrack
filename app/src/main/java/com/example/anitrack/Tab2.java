@@ -105,10 +105,11 @@ public class Tab2 extends Fragment {
         public void onBindViewHolder(@NonNull MusicaViewHolder holder, int position) {
 
             Musica musica = this.musicas.get(position);
-            holder.binding.nombre.setText(musica.nombre);
-            holder.binding.valoracion.setRating(musica.valoracion);
+            holder.binding.textoTab2.setText(musica.nombre);
+            holder.binding.tab2Imagen.setImageResource(R.drawable.dragonball);
 
-            holder.binding.valoracion.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            /*
+                            holder.binding.valoracion.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
                 @Override
                 public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
                     if(fromUser) {
@@ -116,6 +117,7 @@ public class Tab2 extends Fragment {
                     }
                 }
             });
+             */
 
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
