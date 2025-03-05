@@ -40,7 +40,7 @@ public abstract class AnitrackDB extends RoomDatabase {
         @Query("SELECT * FROM Musica")
         LiveData<List<Musica>> obtener();
 
-        @Query("SELECT * FROM Musica WHERE categoria = 'Me gusta'")
+        @Query("SELECT * FROM Musica /*WHERE categoria = 'Me gusta'*/")
         LiveData<List<Musica>> obtenerMeGusta();
 
         @Query("SELECT * FROM Musica WHERE categoria = 'Guardado'")

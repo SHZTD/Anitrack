@@ -33,14 +33,12 @@ public class master extends Fragment {
                         return new Tab1();
                     case 1:
                         return new Tab2();
-                    case 2:
-                        return new Tab3();
                 }
             }
 
             @Override
             public int getItemCount() {
-                return 3;
+                return 2;
             }
         });
     }

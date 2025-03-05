@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Tab1">
 
     <!-- Titulo -->
@@ -23,71 +23,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/tab1"
-        android:alpha="0.12"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        android:alpha="0.12"/>
 
-    <!-- Linear layout con todos los elementos -->
-    <LinearLayout
+    <!-- RecyclerView para la lista de canciones -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/textoTab1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
         android:padding="16dp"
-        android:layout_marginTop="32dp"
-        tools:context=".MostrarElementoFragment">
+        android:clipToPadding="false"
+        android:scrollbars="vertical" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="140dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:id="@+id/icono"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginEnd="16dp"
-                android:background="@drawable/ic_launcher_background"/>
-
-            <TextView
-                android:id="@+id/tituloExplorador"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:text="TEMPLATE"
-                android:textSize="24sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:layout_marginTop="16dp">
-
-            <Button
-                android:id="@+id/btn_me_gusta"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Me gusta"
-                android:padding="8dp"
-                android:textSize="18sp" />
-
-            <Button
-                android:id="@+id/btn_guardar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Guardar"
-                android:padding="8dp"
-                android:textSize="18sp"
-                android:layout_marginStart="16dp" />
-        </LinearLayout>
-
-    </LinearLayout>
 </FrameLayout>

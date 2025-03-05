@@ -92,7 +92,7 @@ public class Tab2 extends Fragment {
         public void onBindViewHolder(@NonNull MusicaViewHolder holder, int position) {
             Musica musica = this.musicas.get(position);
             holder.binding.textoTab2.setText(musica.getTitulo());
-            holder.binding.tab2Imagen.setImageResource(R.drawable.dragonball);
+            holder.binding.tab2Imagen.setImageResource(musica.getImagenResource());
         }
 
         // informar al Recycler de cuántos elementos habrá en la lista

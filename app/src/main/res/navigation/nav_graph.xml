@@ -23,20 +23,12 @@
         <action
             android:id="@+id/action_tab1_to_tab2"
             app:destination="@id/tab2" />
-        <action
-            android:id="@+id/action_tab1_to_tab3"
-            app:destination="@id/tab3" />
     </fragment>
     <fragment
         android:id="@+id/tab2"
         android:name="com.example.anitrack.Tab2"
         android:label="fragment_tab2"
         tools:layout="@layout/fragment_tab2" />
-    <fragment
-        android:id="@+id/tab3"
-        android:name="com.example.anitrack.Tab3"
-        android:label="fragment_tab3"
-        tools:layout="@layout/fragment_tab3" />
     <fragment
         android:id="@+id/master"
         android:name="com.example.anitrack.master"
