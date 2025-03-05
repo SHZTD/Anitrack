@@ -20,4 +20,4 @@ Requisitos ~ Enunciado:
   
   [~] Utilizar el RecyclerView [Interacción con el ViewHolder; Master/Detail]
   
-  [~] Persistencia de datos utilizando Room [Mínimo un tabla; INSERT y SELECT]
+  [X] Persistencia de datos utilizando Room [Mínimo un tabla; INSERT y SELECT]
