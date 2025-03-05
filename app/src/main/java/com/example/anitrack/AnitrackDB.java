@@ -14,10 +14,11 @@ import androidx.room.Update;
 
 import java.util.List;
 
-@Database(entities = { Musica.class }, version = 1, exportSchema = false)
+@Database(entities = {Musica.class}, version = 1, exportSchema = false)
 
 public abstract class AnitrackDB extends RoomDatabase {
     private static volatile AnitrackDB INSTANCIA;
+
     public abstract AniDao getAnimeDao();
 
     static AnitrackDB getInstance(final Context context) {
@@ -38,11 +39,23 @@ public abstract class AnitrackDB extends RoomDatabase {
     interface AniDao {
         @Query("SELECT * FROM Musica")
         LiveData<List<Musica>> obtener();
+
+        @Query("SELECT * FROM Musica WHERE categoria = 'Me gusta'")
+        LiveData<List<Musica>> obtenerMeGusta();
+
+        @Query("SELECT * FROM Musica WHERE categoria = 'Guardado'")
+        LiveData<List<Musica>> obtenerGuardados();
+
         @Insert
         void insertar(Musica musica);
+
         @Update
         void actualizar(Musica musica);
+
         @Delete
         void eliminar(Musica musica);
+
+        @Query("UPDATE Musica SET categoria = :categoria WHERE id = :id")
+        void actualizarCategoria(int id, String categoria);
     }
 }

@@ -1,52 +1,44 @@
 package com.example.anitrack;
 
 import android.app.Application;
+
 import androidx.lifecycle.LiveData;
+
+import com.example.anitrack.Musica;
+
 import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
 public class MusicaRepositorio {
-
     AnitrackDB.AniDao aniDao;
     Executor executor = Executors.newSingleThreadExecutor();
 
-    MusicaRepositorio(Application application){
+    MusicaRepositorio(Application application) {
         aniDao = AnitrackDB.getInstance(application).getAnimeDao();
     }
 
-    MusicaRepositorio(){
-    }
-
-    LiveData<List<Musica>> obtener(){
+    LiveData<List<Musica>> obtener() {
         return aniDao.obtener();
     }
 
-    void insertar(Musica musica){
-        executor.execute(new Runnable() {
-            @Override
-            public void run() {
-                aniDao.insertar(musica);
-            }
-        });
+    LiveData<List<Musica>> obtenerMeGusta() {
+        return aniDao.obtenerMeGusta();
     }
 
-    void eliminar(Musica musica) {
-        executor.execute(new Runnable() {
-            @Override
-            public void run() {
-                aniDao.eliminar(musica);
-            }
-        });
+    LiveData<List<Musica>> obtenerGuardados() {
+        return aniDao.obtenerGuardados();
     }
 
-    public void actualizar(Musica musica, float valoracion) {
-        executor.execute(new Runnable() {
-            @Override
-            public void run() {
-                musica.valoracion = valoracion;
-                aniDao.actualizar(musica);
-            }
-        });
+    void insertar(Musica musica) {
+        executor.execute(() -> aniDao.insertar(musica));
+    }
+
+    public void eliminar(Musica musica) {
+        executor.execute(() -> aniDao.eliminar(musica));
+    }
+
+    void marcarComo(String categoria, Musica musica) {
+        executor.execute(() -> aniDao.actualizarCategoria(musica.id, categoria));
     }
 }

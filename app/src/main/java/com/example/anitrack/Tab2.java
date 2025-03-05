@@ -44,28 +44,15 @@ public class Tab2 extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         musicaViewModel = new ViewModelProvider(requireActivity()).get(MusicaViewModel.class);
-        navController = Navigation.findNavController(view);
+        navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
 
-        // navegar a NuevoElemento cuando se hace click en el FloatingActionButton
-        binding.recyclerView1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                navController.navigate(R.id.action_tab1_to_tab2);
-            }
-        });
-
-        // crear el Adaptador
+        // crear el adaptador y asignarlo al RecyclerView
         MusicaAdapter musicaAdapter = new MusicaAdapter();
-
-        // asociar el Adaptador con el RecyclerView
         binding.recyclerView1.setAdapter(musicaAdapter);
 
-        // obtener el array de Elementos, y pasarselo al Adaptador
-        musicaViewModel.obtener().observe(getViewLifecycleOwner(), new Observer<List<Musica>>() {
-            @Override
-            public void onChanged(List<Musica> musicas) {
-                musicaAdapter.establecerLista(musicas);
-            }
+        // observar SOLO las canciones marcadas como "Me gusta"
+        musicaViewModel.obtenerMeGusta().observe(getViewLifecycleOwner(), musicas -> {
+            musicaAdapter.establecerLista(musicas);
         });
 
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(
@@ -80,12 +67,12 @@ public class Tab2 extends Fragment {
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                 int posicion = viewHolder.getAdapterPosition();
-                Musica musicas = musicaAdapter.obtenerElemento(posicion);
-                musicaViewModel.eliminar(musicas);
-
+                Musica musica = musicaAdapter.obtenerElemento(posicion);
+                musicaViewModel.eliminar(musica);
             }
         }).attachToRecyclerView(binding.recyclerView1);
     }
+
 
     class MusicaAdapter extends RecyclerView.Adapter<MusicaViewHolder> {
 
@@ -103,29 +90,9 @@ public class Tab2 extends Fragment {
         // esté en esa misma posición en el Array
         @Override
         public void onBindViewHolder(@NonNull MusicaViewHolder holder, int position) {
-
             Musica musica = this.musicas.get(position);
-            holder.binding.textoTab2.setText(musica.nombre);
+            holder.binding.textoTab2.setText(musica.getTitulo());
             holder.binding.tab2Imagen.setImageResource(R.drawable.dragonball);
-
-            /*
-                            holder.binding.valoracion.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
-                @Override
-                public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
-                    if(fromUser) {
-                        musicaViewModel.actualizar(musica, rating);
-                    }
-                }
-            });
-             */
-
-            holder.itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    musicaViewModel.seleccionar(musica);
-                    navController.navigate(R.id.action_tab1_to_tab2);
-                }
-            });
         }
 
         // informar al Recycler de cuántos elementos habrá en la lista
@@ -147,7 +114,7 @@ public class Tab2 extends Fragment {
 
     // Clase para inicializar el ViewBinding en los ViewHolder
     class MusicaViewHolder extends RecyclerView.ViewHolder {
-        private final FragmentTab2Binding binding;
+        public final FragmentTab2Binding binding;
 
         public MusicaViewHolder(FragmentTab2Binding binding) {
             super(binding.getRoot());
